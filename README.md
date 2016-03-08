@@ -1,2 +1,2 @@
 # ethereum-contracts
-A place handy Ethereum contracts
+A place for sharing handy Ethereum contracts.
