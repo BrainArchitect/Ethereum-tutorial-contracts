@@ -1,3 +1,9 @@
+/*
+This is the LotteryOrganizer contract. It allows the creator of the contract to set up a lottery,
+that people can join by buying their ticket. After the number of available tickets have been bought,
+the lottery stops accepting any more buyers and determines the winner.
+*/
+
 contract LotteryOrganizer { 
 
     address creator;
