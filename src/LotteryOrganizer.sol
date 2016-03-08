@@ -1,41 +1,42 @@
 contract LotteryOrganizer { 
 
     address creator;
-    Lottery[] public lotteries;
+    Lottery lottery;
+    bool lotteryActive;
+    string[] participants;
     
     struct Lottery
     {
         uint noOfTickets;
         uint ticketPrice;
-        bool active;
-        address winner;
+        string winner;
     }
     
-    function LotteryOrganizer() public
+    function LotteryOrganizer()
     {
         creator = msg.sender;
+        lotteryActive = false;
     }
     
     function createNewLottery(uint _noOfTickets, uint _ticketPrice) 
     {
-        if (msg.sender != creator) {
+        if (msg.sender != creator || lotteryActive) {
             throw;
         }
-        
-        for (uint i = 0; i < lotteries.length; ++i) {
-            var foundActive = false;
-            if () {
-                
-            }
+    
+        lottery = Lottery ({
+            noOfTickets : _noOfTickets,
+            ticketPrice : _ticketPrice,
+            winner : ""
+        });
+    }
+    
+    function buyTicket(string _name) {
+        participants.push(_name);
+        lottery.noOfTickets--;
+        if (lottery.noOfTickets == 0) {
+            pickWinner();
         }
-        
-        lotteries.push(
-            Lottery ({
-                noOfTickets : _noOfTickets,
-                ticketPrice : _ticketPrice,
-                active : true,
-                winner : 0
-            }));
     }
     
     function kill()
@@ -45,5 +46,15 @@ contract LotteryOrganizer {
             // Kill this contract and send any remaining funds back to creator.
             suicide(creator);  
         }
+    }
+    
+    function pickWinner() {
+        lotteryActive = false;
+        uint number = generateRandomNumber(0, lottery.noOfTickets);
+        lottery.winner = participants[number];
+    }
+    
+    function generateRandomNumber(uint start, uint end) returns (uint winningNumber){
+        return 1;
     }
 }
