@@ -1,0 +1,72 @@
+/*
+This contract aims to demonstrate how it can get access to global variables from the
+Ethereum network.
+*/
+
+contract GlobalVariables {
+	
+	address owner;
+	
+	// Contract's constructor:
+	function GlobalVariables() {
+		owner = msg.sender;
+	}
+
+    // Current block miner's address:
+	function getCoinbaseAddress() returns (address coinbaseAddress) {
+		return block.coinbase; 
+	}
+
+	// Block difficulty level:
+	function getDifficulty() returns (uint difficulty) {
+		return block.difficulty; 
+	}
+	
+	// Current block's gas limit:
+	function getGasLimit() returns (uint gasLimit) {
+		return block.gaslimit;
+	}
+	
+	// Current block number:
+	function getBlockNumber() returns (uint blockNumber) {
+		return block.number;
+	}
+	
+	// Current block timestamp:
+	function getBlokTimestamp() returns (uint timestamp) {
+		return block.timestamp;
+	}
+	
+	// Complete call data:
+	function getCallData() returns (bytes data) {
+		return msg.data;
+	}
+	
+	// Remaining gas:
+	function get () returns (uint gas) {
+		return msg.gas;
+	}
+	
+	//function get () returns () {
+	//	return ;
+	//}
+ 
+ // msg.sender (address): sender of the message (current call)
+// msg.value (uint): number of wei sent with the message
+// now (uint): current block timestamp (alias for block.timestamp)
+// tx.gasprice (uint): gas price of the transaction
+// tx.origin (address): sender of the transaction (full call chain)
+// sha3(...) returns (bytes32): compute the Ethereum-SHA3 hash of the (tightly packed) arguments
+// sha256(...) returns (bytes32): compute the SHA256 hash of the (tightly packed) arguments
+// ripemd160(...) returns (bytes20): compute RIPEMD of 256 the (tightly packed) arguments
+// ecrecover(bytes32, uint8, bytes32, bytes32) returns (address): recover public key from elliptic curve signature
+// addmod(uint x, uint y, uint k) returns (uint): compute (x + y) % k where the addition is performed with arbitrary precision and does not wrap around at 2**256.
+// mulmod(uint x, uint y, uint k) returns (uint): compute (x * y) % k where the multiplication is performed with arbitrary precision and does not wrap around at 2**256.
+// this (current contract's type): the current contract, explicitly convertible to address
+// super: the contract one level higher in the inheritance hierarchy
+// selfdestruct(address): destroy the current contract, sending its funds to the given address
+// <address>.balance: balance of the address in Wei
+// <address>.send(uint256) returns (bool): send given amount of Wei to address, returns false on failure.
+
+}
+
