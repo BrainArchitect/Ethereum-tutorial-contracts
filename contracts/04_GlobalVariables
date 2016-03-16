@@ -43,19 +43,35 @@ contract GlobalVariables {
 	}
 	
 	// Remaining gas:
-	function get () returns (uint gas) {
+	function getRemainingGas() returns (uint gas) {
 		return msg.gas;
 	}
 	
-	//function get () returns () {
-	//	return ;
-	//}
- 
- // msg.sender (address): sender of the message (current call)
-// msg.value (uint): number of wei sent with the message
-// now (uint): current block timestamp (alias for block.timestamp)
-// tx.gasprice (uint): gas price of the transaction
-// tx.origin (address): sender of the transaction (full call chain)
+	// Get the sender of the message:
+	function getSender() returns (address sender) {
+		return msg.sender;
+	}
+
+	// Get number of wei sent with the message:
+	function getMessageValue() returns (uint value) {
+		return msg.value; 
+	}
+	
+	// Get current block timestamp (alias for block.timestamp):
+	function getNow() returns (uint now) {
+		return now; 
+	}
+	
+	// Get the gas price of the transaction:
+	function getGasPrice() returns (uint value) {
+		return tx.gasprice; 
+	}
+
+	// Get the sender of the transaction (full call chain):
+	function getTxSender() returns (address value) {
+		return tx.origin; 
+	}
+	
 // sha3(...) returns (bytes32): compute the Ethereum-SHA3 hash of the (tightly packed) arguments
 // sha256(...) returns (bytes32): compute the SHA256 hash of the (tightly packed) arguments
 // ripemd160(...) returns (bytes20): compute RIPEMD of 256 the (tightly packed) arguments
