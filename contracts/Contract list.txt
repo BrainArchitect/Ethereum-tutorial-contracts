@@ -1,0 +1,6 @@
+The contracts that are part of this repository:
+
+01. Greeter
+02. GreeterIsMortal
+03. LotteryOrganizer
+04. GlobalVariables
