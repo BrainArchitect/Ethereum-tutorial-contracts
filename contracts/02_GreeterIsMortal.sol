@@ -18,7 +18,7 @@ contract Mortal {
     // Define variable owner of the type address:
     address owner;
 
-    // this function is executed at initialization and sets the owner of the contract:
+    // This function is executed at initialization and sets the owner of the contract:
     function mortal() { 
     	owner = msg.sender; 
    	}
