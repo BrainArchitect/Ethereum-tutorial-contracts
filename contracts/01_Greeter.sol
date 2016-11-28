@@ -3,7 +3,7 @@ This is the respective to the "Hello world" example of any other language.
 **/
 contract Greeter {
 
-	// Define variable owner of the type address
+    // Define variable owner of the type address
     address owner;
     // Define variable greeting of the type string
     string greeting;
@@ -24,5 +24,5 @@ contract Greeter {
         if (msg.sender == owner) {
             suicide(owner); 
         }
-   	}
+    }
 }
